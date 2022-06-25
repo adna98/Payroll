@@ -1,4 +1,4 @@
-wh = input("Pleas enter your working hours for this week\n")  # Asking from the user to enter working hours
+wh = input("Pleas enter your working hours for this month\n")  # Asking from the user to enter working hours
 wh_number = float(wh)  # casting
 wd = wh_number/8    # Based of the working hours we calculate working days with full time
 wd_number = float(wd)
@@ -13,17 +13,20 @@ def salary(wh_number):
 total_salary = salary(wh_number)
 print(total_salary)
 
-vacation = input("Pleas enter your vacation days\n")
+vacation = input("Pleas enter if you have vacation days in this month\n")
 vacation_number = int(vacation)
-field_fee = input("Pleas enter your field days\n")
+field_fee = input("Pleas enter your field days for this month\n")
 field_fee_number = int(field_fee)
+food = 9  # This is a daily payment for your mael
+transport = 83  # This is fee for the transport ticket
+field_per_day = 25  # This amount of money is paid per day on field
 
 
 def total(field_fee_number):
     if field_fee_number >= 1:
-        return f"Total salary is {wd_number*9+83+wh_number*hourly_rate+field_fee_number*25-vacation_number*9} {currency}"  # 83 is monthly transport fee; 25 is field fee per day
+        return f"Total salary is {wd_number*food+transport+wh_number*hourly_rate+field_fee_number*field_per_day-vacation_number*food} {currency}"
     else:
-        return f"Your salary is {wd_number*9+83+wh_number*hourly_rate-vacation_number*9} {currency}"
+        return f"Your salary is {wd_number*food+transport+wh_number*hourly_rate-vacation_number*food} {currency}"
 
 
 total_number = total(field_fee_number)
