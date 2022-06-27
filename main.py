@@ -37,26 +37,28 @@ Q1 = "yes"
 Q2 = "no"
 
 
-if Q_input == Q1:
-    user_input = input("Pleas enter your total salary to know your finance stability\n")
-    user_input_number = float(user_input)
+def question():
+    if Q_input == Q1:
+        user_input = input("Pleas enter your total salary to know your finance stability\n")
+        user_input_number = float(user_input)
+
+        def answare(user_input_number):
+            if user_input_number > 1667:  # this is the average gross salary in FBiH for 04/2022
+                return "Your salary is bigger then average gross salary in FBiH this days\n" \
+                       "Congratulations, and wish you much more success in your future career"
+            elif user_input_number <= 1000:
+                return "I am really sorry, but your salary is much below average gross salary in FBiH\n " \
+                       "I belive that you can do it better!\n" \
+                       "Good luck with finding new job!"
+            else:
+                return "Your salary is below average gross salary in FBiH"
+
+        final_answare = answare(user_input_number)
+        print(final_answare)
+    elif Q_input == Q2:
+        print("Thank you for using this program, I hope you found it useful")
+    else:
+        print("Your answer is not complete, please enter yes or no")
+question()
 
 
-    def answare(user_input_number):
-        if user_input_number > 1667:  # this is the average gross salary in FBiH for 04/2022
-            return "Your salary is bigger then average gross salary in FBiH this days\n" \
-                   "Congratulations, and wish you much more success in your future career"
-        elif user_input_number <= 1000:
-            return "I am really sorry, but your salary is much below average gross salary in FBiH\n " \
-                   "I belive that you can do it better!\n" \
-                   "Good luck with finding new job!"
-        else:
-            return "Your salary is below average gross salary in FBiH"
-
-
-    final_answare = answare(user_input_number)
-    print(final_answare)
-elif Q_input == Q2:
-    print("Thank you for using this program, I hope you found it useful")
-else:
-    print("Your answer is not complete please enter yes or no")
